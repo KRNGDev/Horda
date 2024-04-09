@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-namespace Enemigo
+namespace NpcEnemigo
 {
     public class SistemaVida : MonoBehaviour
     {
@@ -13,6 +13,9 @@ namespace Enemigo
         public String tagEnemigo;
         public Animator animator;
 
+        [Header("Datos Personaje")]
+        public GameObject humo;
+        private bool muerto = false;
 
         void Start()
         {
@@ -20,10 +23,13 @@ namespace Enemigo
         }
         void Update()
         {
-            if (vidaActual <= 0)
+            if (vidaActual <= 0 && !muerto)
             {
 
+                muerto = true;
                 animator.SetBool("muerto", true);
+                Invoke("Destruir", 5);
+
             }
         }
         public void QuitarVida(int hit)
@@ -51,6 +57,12 @@ namespace Enemigo
 
                 animator.SetBool("Dado", false);
             }
+        }
+        public void Destruir()
+        {
+
+            Instantiate(humo, transform.position, transform.rotation);
+            Destroy(transform.parent.gameObject);
         }
 
 

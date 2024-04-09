@@ -3,12 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ManoIzq
+  - ManoDrch
+  - Espada
+  - Enemigo
+  - EspadaEnemiga
+  - item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

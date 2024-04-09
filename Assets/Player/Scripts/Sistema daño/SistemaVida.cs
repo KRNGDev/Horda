@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 namespace Player
 {
     public class SistemaVida : MonoBehaviour
@@ -12,14 +13,20 @@ namespace Player
         public float vidaActual;
         public String tagEnemigo;
         public Animator animator;
+        private GameObject target;
+        public Slider sliderVida;
 
 
         void Start()
         {
+
             vidaActual = vidaMax;
+            target = GameObject.FindGameObjectWithTag("Player");
         }
         void Update()
         {
+            sliderVida.maxValue = vidaMax;
+            sliderVida.value = vidaActual;
             if (vidaActual <= 0)
             {
 
@@ -35,8 +42,12 @@ namespace Player
         }
         void OnTriggerEnter(Collider other)
         {
+            int damage = target.GetComponent<Player>().puntosDano;
+
             if (other.gameObject.CompareTag(tagEnemigo))
             {
+
+                QuitarVida(damage);
 
                 animator.SetBool("Dado", true);
             }
@@ -48,6 +59,7 @@ namespace Player
             {
 
                 animator.SetBool("Dado", false);
+
             }
         }
 

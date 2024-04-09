@@ -1171,7 +1171,7 @@ MonoBehaviour:
   atacando: 0
   defendiendo: 0
   estaEnSuelo: 1
-  animator: {fileID: 0}
+  animator: {fileID: 1972764857207481283}
   TransformTarget: {fileID: 0}
 --- !u!114 &619107339490812601
 MonoBehaviour:
@@ -1185,8 +1185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015cdb2a353910441935a4e3e906ce10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioAliento: {fileID: 0}
-  audioEspada: {fileID: 0}
+  audioAliento: {fileID: 8300000, guid: 70472e45b03a8d74d9cee675d01d6658, type: 3}
+  audioEspada: {fileID: 8300000, guid: 3a9024066219c0b40b521cac0df7960f, type: 3}
   audioPisada: {fileID: 8300000, guid: 02fed98da8caeda4d8f03c4e380ce123, type: 3}
   audioCaer: {fileID: 0}
   audioSaltar: {fileID: 0}
@@ -1208,6 +1208,7 @@ MonoBehaviour:
   vidaActual: 10
   tagEnemigo: Espada
   animator: {fileID: 1972764857207481283}
+  humo: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
 --- !u!1 &4955321338303459881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,9 +1768,10 @@ GameObject:
   - component: {fileID: 4741372087668783012}
   - component: {fileID: 3894346366003654326}
   - component: {fileID: 2699319393314874802}
+  - component: {fileID: 5424026802730105657}
   m_Layer: 0
   m_Name: sword_wood
-  m_TagString: Untagged
+  m_TagString: EspadaEnemiga
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1841,6 +1843,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5424026802730105657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284274796888567940}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.22787887, y: 0.08938332, z: 0.6763028}
+  m_Center: {x: 0.000000018274841, y: -0.00000024861075, z: 0.24528097}
 --- !u!1 &8658453640480017585
 GameObject:
   m_ObjectHideFlags: 0

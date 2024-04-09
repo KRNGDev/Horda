@@ -111,7 +111,7 @@ namespace Player
             estaEnSuelo = true;
             if (other.gameObject.CompareTag("Enemigo"))
             {
-                other.GetComponent<Enemigo.SistemaVida>().QuitarVida(puntosDano);
+                other.GetComponent<NpcEnemigo.SistemaVida>().QuitarVida(puntosDano);
             }
         }
         private void OnTriggerExit(Collider other)

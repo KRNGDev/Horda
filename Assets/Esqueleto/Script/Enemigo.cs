@@ -18,7 +18,6 @@ namespace Enemigo
         [Header("Estados Enemigo")]
         public bool atacando = false;
         public bool defendiendo = false;
-        private bool segundoAtaque = false;
         public bool estaEnSuelo = true;
 
         [Header("GameObject Player")]
@@ -58,25 +57,15 @@ namespace Enemigo
             }
             //
         }
-        void OnTriggerEnter(Collider other)
+        /*void OnTriggerEnter(Collider other)
         {
             damage = targetPlayer.puntosDano;
             if (other.CompareTag("Espada"))
             {
 
-                this.gameObject.GetComponent<SistemaVida>().QuitarVida(damage);
+                GetComponent<NpcEnemigo.SistemaVida>().QuitarVida(damage);
             }
-        }
-        public void OnAtaqueAnimationEvent()
+        }*/
 
-        {
-            if (segundoAtaque == true)
-            {
-                animator.SetBool("AtaqueFuerte", true);
-            }
-            segundoAtaque = true;
-
-
-        }
     }
 }
