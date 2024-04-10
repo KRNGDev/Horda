@@ -28,6 +28,7 @@ namespace Player
         // Start is called before the first frame update
         void Start()
         {
+            Time.timeScale = 1;
 
             rbPlayer = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
@@ -109,10 +110,7 @@ namespace Player
             animator.SetBool("EstaEnSuelo", true);
             animator.SetBool("Saltando", false);
             estaEnSuelo = true;
-            if (other.gameObject.CompareTag("Enemigo"))
-            {
-                other.GetComponent<NpcEnemigo.SistemaVida>().QuitarVida(puntosDano);
-            }
+
         }
         private void OnTriggerExit(Collider other)
         {
@@ -127,6 +125,7 @@ namespace Player
             animator.SetBool("Saltando", false);
             estaEnSuelo = true;
         }
+
 
 
     }

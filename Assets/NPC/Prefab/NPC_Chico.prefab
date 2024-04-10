@@ -351,7 +351,7 @@ PrefabInstance:
     - target: {fileID: 9029120636530626770, guid: 14ab85c74a636c74baa3ae08a1b410bc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f323cced30244554986ee5e9f5dd8b67, type: 2}
+      objectReference: {fileID: 2100000, guid: 348eeda6cad5d86469a42deac7177e6f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -4664482770155165401, guid: 14ab85c74a636c74baa3ae08a1b410bc, type: 3}
@@ -536,6 +536,7 @@ MonoBehaviour:
   vidaActual: 20
   tagEnemigo: Espada
   animator: {fileID: 4929103371559327190}
+  humo: {fileID: 0}
 --- !u!114 &3905032804007898380
 MonoBehaviour:
   m_ObjectHideFlags: 0

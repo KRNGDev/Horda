@@ -16,10 +16,12 @@ namespace Enemigo
         private NavMeshAgent navMeshAgent;
         private Animator animator;
         private float x, y;
+        private bool muerto = false;
 
         private bool esperandoAsignacion = false;
         void Start()
         {
+
             animator = GetComponent<Animator>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             if (patrullajeAleatorio)
@@ -30,7 +32,12 @@ namespace Enemigo
         }
         void Update()
         {
-            DeterminarSiguienteTarget();
+
+            muerto = GetComponent<SistemaVidaEnemigo>().muerto;
+            if (muerto == false)
+            {
+                DeterminarSiguienteTarget();
+            }
         }
         private void DeterminarSiguienteTarget()
         {
@@ -38,27 +45,29 @@ namespace Enemigo
             x = 0;
             y = navMeshAgent.velocity.magnitude;
 
-
-            animator.SetFloat("X", x);
-            animator.SetFloat("Y", y);
-            if (esperandoAsignacion) return;
-            if (!navMeshAgent.pathPending)
+            if (!muerto)
             {
-                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+                animator.SetFloat("X", x);
+                animator.SetFloat("Y", y);
+                if (esperandoAsignacion) return;
+                if (!navMeshAgent.pathPending)
                 {
-                    if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
+                    if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
                     {
-                        if (patrullajeAleatorio)
+                        if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
                         {
-                            tiempoEspera = Random.Range(0, tiempoMax);
-                            esperandoAsignacion = true;
-                            Invoke("AsignarSiguienteTargetAleatorio", tiempoEspera);
-                        }
-                        else
-                        {
-                            tiempoEspera = Random.Range(0, tiempoMax);
-                            esperandoAsignacion = true;
-                            Invoke("AsignarSiguienteTargetSecuencial", tiempoEspera);
+                            if (patrullajeAleatorio)
+                            {
+                                tiempoEspera = Random.Range(0, tiempoMax);
+                                esperandoAsignacion = true;
+                                Invoke("AsignarSiguienteTargetAleatorio", tiempoEspera);
+                            }
+                            else
+                            {
+                                tiempoEspera = Random.Range(0, tiempoMax);
+                                esperandoAsignacion = true;
+                                Invoke("AsignarSiguienteTargetSecuencial", tiempoEspera);
+                            }
                         }
                     }
                 }

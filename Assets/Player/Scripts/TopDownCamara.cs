@@ -99,7 +99,7 @@ namespace Player
         {
 
 
-            yield return new WaitForSeconds(3.5F);
+            yield return new WaitForSeconds(1.5F);
 
 
             //canvas = GameObject.FindGameObjectWithTag("Panel Opciones").GetComponent<ProyectoTank.MenuInicio.MenuPrincipal>();

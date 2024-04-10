@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-namespace Enemigo
+using UnityEngine.Animations;
+namespace enemigo
 {
     public class Enemigo : MonoBehaviour
     {
@@ -12,7 +13,6 @@ namespace Enemigo
         public float fuerzaSalto = 10.0f;
         public float velRotate = 200.0f;
         public float velMovimiento = 5.0f;
-        private float x, y;
         public int distanciaAtaque;
 
         [Header("Estados Enemigo")]
@@ -22,18 +22,22 @@ namespace Enemigo
 
         [Header("GameObject Player")]
         public Animator animator;
-        private Rigidbody rbPlayer;
+
         public Transform TransformTarget;
         private GameObject target;
-        private Player.Player targetPlayer;
-        private int damage;
+        private bool muerto;
+        public Camera camara;
+
+
         // Start is called before the first frame update
         void Start()
         {
-            rbPlayer = GetComponent<Rigidbody>();
+            ConstraintSource cs = new ConstraintSource();
+            cs.weight = 1;
+            cs.sourceTransform = Camera.main.transform;
+            GetComponentInChildren<LookAtConstraint>().AddSource(cs);
             animator = GetComponent<Animator>();
             target = GameObject.FindGameObjectWithTag("Player");
-            targetPlayer = target.GetComponent<Player.Player>();
             TransformTarget = GameObject.FindGameObjectWithTag("Player").transform;
 
         }
@@ -41,31 +45,27 @@ namespace Enemigo
         // Update is called once per frame
         void Update()
         {
-            if (!target || Vector3.Distance(transform.position, target.transform.position) < 5)
+            muerto = GetComponent<SistemaVidaEnemigo>().muerto;
+            if (!muerto)
             {
-
-                GetComponent<NavMeshAgent>().destination = TransformTarget.position;
-                if (Vector3.Distance(transform.position, target.transform.position) < 2.5f)
+                if (!target || Vector3.Distance(transform.position, target.transform.position) < 5)
                 {
 
-                    animator.SetBool("ataca", true);
-                }
-                else
-                {
-                    animator.SetBool("ataca", false);
+                    GetComponent<NavMeshAgent>().destination = TransformTarget.position;
+                    if (Vector3.Distance(transform.position, target.transform.position) < 2.5f)
+                    {
+
+                        animator.SetBool("ataca", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("ataca", false);
+                    }
                 }
             }
-            //
+
         }
-        /*void OnTriggerEnter(Collider other)
-        {
-            damage = targetPlayer.puntosDano;
-            if (other.CompareTag("Espada"))
-            {
 
-                GetComponent<NpcEnemigo.SistemaVida>().QuitarVida(damage);
-            }
-        }*/
 
     }
 }

@@ -9,9 +9,7 @@ public class ControlPanel : MonoBehaviour
     [Header("Paneles del Menu")]
     public GameObject panelOpciones;
     public GameObject panelJuego;
-    public GameObject panelFondo;
-    public GameObject panelBotones;
-    public GameObject panelLogo;
+
 
 
     // Start is called before the first frame update
@@ -29,28 +27,21 @@ public class ControlPanel : MonoBehaviour
     public void MostrarPanel(string panel)
     {
 
-        panelOpciones.SetActive(false);
-        panelJuego.SetActive(false);
-        panelFondo.SetActive(false);
-        panelBotones.SetActive(false);
-        panelLogo.SetActive(false);
 
         switch (panel)
         {
             case "juego":
+                panelOpciones.SetActive(false);
+                panelJuego.SetActive(false);
                 panelJuego.SetActive(true);
                 break;
             case "opciones":
+                panelOpciones.SetActive(false);
+                panelJuego.SetActive(false);
                 panelOpciones.SetActive(true);
                 break;
-            case "fondo":
-                panelFondo.SetActive(true);
-                break;
-            case "botones":
-                panelBotones.SetActive(true);
-                break;
-            case "logo":
-                panelLogo.SetActive(true);
+
+            case "ocultar":
                 break;
 
 
@@ -61,7 +52,7 @@ public class ControlPanel : MonoBehaviour
     }
     public void CargarScena(string nombre)
     {
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene(nombre);
     }
 
 
