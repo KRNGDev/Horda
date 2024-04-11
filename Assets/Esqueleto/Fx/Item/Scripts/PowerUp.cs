@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour
@@ -7,9 +8,10 @@ public class PowerUp : MonoBehaviour
 
     public GameObject pickupEffect;
 
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Espada"))
         {
             Pickup();
         }
@@ -17,6 +19,8 @@ public class PowerUp : MonoBehaviour
 
     void Pickup()
     {
+
+
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
 

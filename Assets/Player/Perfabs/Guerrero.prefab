@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28064775
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -147.24564
+      value: -153.7
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -260,6 +260,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3989525750869832898}
+    - targetCorrespondingSourceObject: {fileID: 100058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2754940975930362225}
   m_SourcePrefab: {fileID: 100100000, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
 --- !u!1 &2427688327889708199 stripped
 GameObject:
@@ -489,6 +492,24 @@ MonoBehaviour:
   tagEnemigo: EspadaEnemiga
   animator: {fileID: 2427688327897093917}
   sliderVida: {fileID: 0}
+  panelGameOver: {fileID: 0}
+--- !u!114 &2754940975930362225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427688327889708199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a5b7aaaa76a2c468dd4aca2d94fff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntos: 1
+  textoPuntos: {fileID: 0}
+  textoTotal: {fileID: 0}
+  textoTotalGameover: {fileID: 0}
+  moneda: {fileID: 8300000, guid: 912cd071b6eabde449169cbe3b5cdaae, type: 3}
 --- !u!4 &2427688327889942727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400058, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
@@ -667,8 +688,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.34595194, y: 1.5379828, z: 0.06556262}
-  m_Center: {x: -0.0000061057694, y: -0.9405984, z: -0.0000030209085}
+  m_Size: {x: 0.17593108, y: 0.33876497, z: 0.06556262}
+  m_Center: {x: -0.023523038, y: -1.328701, z: -0.000002176834}
 --- !u!4 &4944740332791598918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8e748ab8b2b891145b67425cad73aebf, type: 3}

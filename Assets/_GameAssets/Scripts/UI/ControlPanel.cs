@@ -42,6 +42,8 @@ public class ControlPanel : MonoBehaviour
                 break;
 
             case "ocultar":
+                panelOpciones.SetActive(false);
+                panelJuego.SetActive(false);
                 break;
 
 

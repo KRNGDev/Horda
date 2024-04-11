@@ -44,9 +44,11 @@ namespace Enemigo
 
             x = 0;
             y = navMeshAgent.velocity.magnitude;
+            muerto = GetComponent<SistemaVidaEnemigo>().muerto;
 
             if (!muerto)
             {
+
                 animator.SetFloat("X", x);
                 animator.SetFloat("Y", y);
                 if (esperandoAsignacion) return;

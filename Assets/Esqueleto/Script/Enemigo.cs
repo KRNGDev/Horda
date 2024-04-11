@@ -48,13 +48,13 @@ namespace enemigo
             muerto = GetComponent<SistemaVidaEnemigo>().muerto;
             if (!muerto)
             {
-                if (!target || Vector3.Distance(transform.position, target.transform.position) < 5)
+                if (Vector3.Distance(transform.position, target.transform.position) < 8)
                 {
 
-                    GetComponent<NavMeshAgent>().destination = TransformTarget.position;
+                    GetComponent<NavMeshAgent>().destination = target.transform.position;
                     if (Vector3.Distance(transform.position, target.transform.position) < 2.5f)
                     {
-
+                        transform.LookAt(transform);
                         animator.SetBool("ataca", true);
                     }
                     else

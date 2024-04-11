@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemigo;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class SistemaVidaEnemigo : MonoBehaviour
@@ -18,10 +20,14 @@ public class SistemaVidaEnemigo : MonoBehaviour
     public bool muerto = false;
     private bool dado = false;
     public Slider sliderVida;
+    private NavMeshAgent navAgern;
+    private PatrullajeManager patrulla;
 
 
     void Start()
     {
+        navAgern = GetComponent<NavMeshAgent>();
+        patrulla = GetComponent<PatrullajeManager>();
         vidaActual = vidaMax;
     }
     void Update()
@@ -32,8 +38,16 @@ public class SistemaVidaEnemigo : MonoBehaviour
         {
 
             muerto = true;
+
+            patrulla.enabled = false;
+
             animator.SetBool("muerto", true);
-            Invoke("Destruir", 2);
+
+
+
+
+            // Invoke("Destruir", 2);
+
 
         }
     }

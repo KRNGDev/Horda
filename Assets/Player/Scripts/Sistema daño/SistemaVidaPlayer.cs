@@ -49,13 +49,25 @@ public class SistemaVidaPlayer : MonoBehaviour
 
         if (other.gameObject.CompareTag(tagEnemigo) && !dado)
         {
+            enemigo.Enemigo enemigo = other.GetComponentInParent<enemigo.Enemigo>();
+            enemigo.EnemigoKamikace Kamikace = other.GetComponentInParent<enemigo.EnemigoKamikace>();
+            if (enemigo != null)
+            {
+                int damage = enemigo.puntosDano;
+                QuitarVida(damage);
+                animator.SetBool("Dado", true);
+                dado = true;
+            }
+            if (Kamikace != null)
+            {
+                int damage = Kamikace.puntosDano;
+                QuitarVida(damage);
+                animator.SetBool("Dado", true);
+
+                dado = true;
+            }
 
 
-            int damage = other.GetComponentInParent<enemigo.Enemigo>().puntosDano;
-            QuitarVida(damage);
-
-            animator.SetBool("Dado", true);
-            dado = true;
         }
 
     }
