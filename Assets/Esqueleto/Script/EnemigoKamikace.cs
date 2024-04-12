@@ -30,6 +30,10 @@ namespace enemigo
         // Start is called before the first frame update
         void Start()
         {
+             ConstraintSource cs = new ConstraintSource();
+            cs.weight = 1;
+            cs.sourceTransform = Camera.main.transform;
+            GetComponentInChildren<LookAtConstraint>().AddSource(cs);
 
             animator = GetComponent<Animator>();
             target = GameObject.FindGameObjectWithTag("Player");
@@ -49,7 +53,7 @@ namespace enemigo
                     transform.LookAt(target.transform.position);
                 }
 
-                if (Vector3.Distance(transform.position, target.transform.position) < 2f)
+                if (Vector3.Distance(transform.position, target.transform.position) < distanciaAtaque)
                 {
                     atacando = true;
 

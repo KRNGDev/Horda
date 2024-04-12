@@ -20,13 +20,13 @@ public class SistemaVidaEnemigo : MonoBehaviour
     public bool muerto = false;
     private bool dado = false;
     public Slider sliderVida;
-    private NavMeshAgent navAgern;
+    private enemigo.Enemigo scrpitenemigo;
     private PatrullajeManager patrulla;
 
 
     void Start()
     {
-        navAgern = GetComponent<NavMeshAgent>();
+        scrpitenemigo = GetComponent<enemigo.Enemigo>();
         patrulla = GetComponent<PatrullajeManager>();
         vidaActual = vidaMax;
     }
@@ -34,21 +34,11 @@ public class SistemaVidaEnemigo : MonoBehaviour
     {
         sliderVida.maxValue = vidaMax;
         sliderVida.value = vidaActual;
-        if (vidaActual <= 0.2f && !muerto)
+        if (vidaActual <= 0 && !muerto)
         {
-
-            muerto = true;
-
-            patrulla.enabled = false;
+            muerto = true;          
 
             animator.SetBool("muerto", true);
-
-
-
-
-            // Invoke("Destruir", 2);
-
-
         }
     }
     public void QuitarVida(int hit)
@@ -81,10 +71,12 @@ public class SistemaVidaEnemigo : MonoBehaviour
             animator.SetBool("Dado", false);
         }
     }
+    public void Quieto(){
+        patrulla.enabled = false;
+        scrpitenemigo.enabled = false;
+    }
     public void Destruir()
     {
-
-
         GetComponent<DropeoItem>().SoltarObjeto();
         Instantiate(humo, transform.position, transform.rotation);
         Destroy(transform.parent.gameObject);

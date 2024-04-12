@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntosDano: 2
   velMovimiento: 2
-  distanciaAtaque: 2
+  distanciaAtaque: 1
   atacando: 0
   defendiendo: 0
   estaEnSuelo: 1
@@ -2204,8 +2204,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.22787887, y: 0.08938332, z: 0.19736539}
-  m_Center: {x: 0.0000006782671, y: -0.00000026588364, z: 0.4832248}
+  m_Size: {x: 0.22787887, y: 0.08938332, z: 0.4065714}
+  m_Center: {x: 0.0000010807643, y: -0.0000002577061, z: 0.37862197}
 --- !u!1 &8658453640480017585
 GameObject:
   m_ObjectHideFlags: 0
