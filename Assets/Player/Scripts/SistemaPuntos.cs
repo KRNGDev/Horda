@@ -24,10 +24,19 @@ public class SistemaPuntos : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(moneda);
 
             totalPuntos += puntos;
-            textoPuntos.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
-            textoTotal.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
-            textoTotalGameover.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
+            if (textoPuntos != null)
+            {
+                textoPuntos.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
+            }
+            if (textoTotal != null)
+            {
+                textoTotal.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
+            }
+            if (textoTotalGameover != null)
+            {
 
+                textoTotalGameover.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
+            }
         }
     }
 }

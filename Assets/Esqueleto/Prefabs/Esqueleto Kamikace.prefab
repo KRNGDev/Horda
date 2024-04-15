@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntosDano: 2
   velMovimiento: 2
-  distanciaAtaque: 1
+  distanciaAtaque: 2
   atacando: 0
   defendiendo: 0
   estaEnSuelo: 1

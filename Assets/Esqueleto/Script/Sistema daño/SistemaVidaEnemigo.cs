@@ -36,7 +36,7 @@ public class SistemaVidaEnemigo : MonoBehaviour
         sliderVida.value = vidaActual;
         if (vidaActual <= 0 && !muerto)
         {
-            muerto = true;          
+            muerto = true;
 
             animator.SetBool("muerto", true);
         }
@@ -71,9 +71,18 @@ public class SistemaVidaEnemigo : MonoBehaviour
             animator.SetBool("Dado", false);
         }
     }
-    public void Quieto(){
-        patrulla.enabled = false;
-        scrpitenemigo.enabled = false;
+    public void Quieto()
+    {
+        if (patrulla != null)
+        {
+            patrulla.enabled = false;
+        }
+        if (scrpitenemigo != null)
+        {
+            scrpitenemigo.enabled = false;
+        }
+
+
     }
     public void Destruir()
     {
