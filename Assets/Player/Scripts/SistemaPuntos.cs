@@ -11,6 +11,7 @@ public class SistemaPuntos : MonoBehaviour
     public TextMeshProUGUI textoTotal;
     public TextMeshProUGUI textoTotalGameover;
     public AudioClip moneda;
+    public AudioClip pocion;
 
     void Start()
     {
@@ -37,6 +38,12 @@ public class SistemaPuntos : MonoBehaviour
 
                 textoTotalGameover.GetComponent<TextMeshProUGUI>().SetText(totalPuntos.ToString());
             }
+        }
+        if (other.CompareTag("item"))
+        {
+            GetComponent<AudioSource>().PlayOneShot(pocion);
+
+            GetComponent<SistemaVidaPlayer>().vidaActual += 10;
         }
     }
 }

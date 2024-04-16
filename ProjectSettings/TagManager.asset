@@ -12,6 +12,7 @@ TagManager:
   - item
   - Moneda
   - FxTemporaire
+  - Bomba
   layers:
   - Default
   - TransparentFX

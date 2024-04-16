@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1657845983578627927}
+  - component: {fileID: 1877770746869612434}
   m_Layer: 0
   m_Name: AtaqueArea
-  m_TagString: Untagged
+  m_TagString: Bomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 7746591558165638432}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1877770746869612434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69049137464946425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98c2f82a6df0ed47b5eef26a3e92e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoDeVida: 2
 --- !u!1 &3665748265031527870
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,12 +57,10 @@ GameObject:
   - component: {fileID: 7746591558165638432}
   - component: {fileID: 2540023906530897495}
   - component: {fileID: 1911037716225203242}
-  - component: {fileID: 2897582218961577264}
   - component: {fileID: 1726615784524998202}
-  - component: {fileID: 4072210245542695878}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Bomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,27 +132,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2897582218961577264
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3665748265031527870}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.528306
-  m_Center: {x: 0.0045681, y: 0.7582722, z: 0}
 --- !u!114 &1726615784524998202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,39 +145,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radio: 7
-  fuerzaHorizontal: 1000
+  fuerzaHorizontal: 500
   fuerzaVertical: 2
   temporizador: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 128
---- !u!54 &4072210245542695878
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3665748265031527870}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1851166504510149302
 PrefabInstance:
   m_ObjectHideFlags: 0

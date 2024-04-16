@@ -71,15 +71,17 @@ public class SistemaVidaEnemigo : MonoBehaviour
             animator.SetBool("Dado", false);
         }
     }
+
     public void Quieto()
     {
-        if (patrulla != null)
+
+
+        // MonoBehaviour esto coje todo los script del jugador y los desactiva
+
+        MonoBehaviour[] mb = GetComponentsInChildren<MonoBehaviour>();
+        foreach (MonoBehaviour m in mb)
         {
-            patrulla.enabled = false;
-        }
-        if (scrpitenemigo != null)
-        {
-            scrpitenemigo.enabled = false;
+            m.enabled = false;
         }
 
 
