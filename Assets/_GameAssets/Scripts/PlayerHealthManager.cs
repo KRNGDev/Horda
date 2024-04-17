@@ -16,6 +16,8 @@ public class PlayerHealthManager : MonoBehaviour
         if (gameManager.salud == 0)
         {
             GetComponentInChildren<Animator>().SetTrigger("Die");
+            // MonoBehaviour esto coje todo los script del jugador y los desactiva
+            
             MonoBehaviour[] mb = GetComponentsInChildren<MonoBehaviour>();
             foreach (MonoBehaviour m in mb)
             {
