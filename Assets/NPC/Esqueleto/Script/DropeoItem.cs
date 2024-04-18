@@ -8,7 +8,7 @@ public class DropeoItem : MonoBehaviour
     public int alturaDrop = -1;
     public void SoltarObjeto()
     {
-        int itemAleatorio = Random.Range(0, item.Length - 1);
+        int itemAleatorio = Random.Range(0, item.Length);
         //Vector3 elevacion = new Vector3(0, alturaDrop, 0);
         Vector3 posicion = transform.position;
 

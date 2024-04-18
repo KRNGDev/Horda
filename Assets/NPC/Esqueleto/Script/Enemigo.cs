@@ -13,7 +13,9 @@ namespace enemigo
         public float fuerzaSalto = 10.0f;
         public float velRotate = 200.0f;
         public float velMovimiento = 5.0f;
+        public float tiempoCongelado = 1;
         public int distanciaAtaque;
+        public GameObject rayos;
 
         [Header("Estados Enemigo")]
         public bool atacando = false;
@@ -21,12 +23,12 @@ namespace enemigo
         public bool estaEnSuelo = true;
 
         [Header("GameObject Player")]
-        public Animator animator;
+        private Animator animator;
 
-        public Transform TransformTarget;
+        private Transform TransformTarget;
         private GameObject target;
         private bool muerto;
-        public Camera camara;
+        public bool congelado = false;
 
 
         // Start is called before the first frame update
@@ -50,6 +52,7 @@ namespace enemigo
             {
                 if (Vector3.Distance(transform.position, target.transform.position) < 8)
                 {
+                    
 
                     GetComponent<NavMeshAgent>().destination = target.transform.position;
                     if (Vector3.Distance(transform.position, target.transform.position) < 2.5f)
@@ -63,9 +66,25 @@ namespace enemigo
                     }
                 }
             }
+            if (congelado)
+            {
+                Animacion();
+            }
 
         }
 
+        public void Animacion()
+        {congelado = false;
+            GetComponent<Animator>().enabled = false;
+            GameObject aturdido=Instantiate(rayos,transform.position,transform.rotation);
+            aturdido.transform.parent = transform;
+            Invoke("Activar", tiempoCongelado);
+        }
+        public void Activar()
+        {
+            GetComponent<Animator>().enabled = true;
+            
+        }
 
     }
 }

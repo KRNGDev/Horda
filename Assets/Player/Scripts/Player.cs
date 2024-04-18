@@ -69,6 +69,14 @@ namespace Player
                 animator.SetBool("Defendiendo", false);
                 defendiendo = false;
             }
+            if(Input.GetKeyDown(KeyCode.Q)){
+                animator.SetBool("ataqueGiratorio", true);
+                
+            }
+            if(Input.GetKeyUp(KeyCode.Q)){
+                animator.SetBool("ataqueGiratorio", false);
+                
+            }
 
             //Movimiento Player
             if (atacando == false && defendiendo == false)

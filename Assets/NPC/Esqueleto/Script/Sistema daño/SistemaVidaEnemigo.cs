@@ -13,7 +13,7 @@ public class SistemaVidaEnemigo : MonoBehaviour
     public int vidaMax;
     public float vidaActual;
     public String tagEnemigo;
-    public Animator animator;
+    private Animator animator;
 
     [Header("Datos Personaje")]
     public GameObject humo;
@@ -26,6 +26,7 @@ public class SistemaVidaEnemigo : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         scrpitenemigo = GetComponent<enemigo.Enemigo>();
         patrulla = GetComponent<PatrullajeManager>();
         vidaActual = vidaMax;
@@ -90,7 +91,7 @@ public class SistemaVidaEnemigo : MonoBehaviour
     {
         GetComponent<DropeoItem>().SoltarObjeto();
         Instantiate(humo, transform.position, transform.rotation);
-        Destroy(transform.parent.gameObject);
+        Destroy(transform.gameObject);
     }
     public void QuitarGolpe()
     {

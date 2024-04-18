@@ -577,10 +577,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.32290196
+  m_Radius: 0.51169634
   m_Height: 1.8403172
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9267776, z: 0.04343912}
+  m_Center: {x: 0.009599209, y: 0.9267776, z: -0.0077590942}
 --- !u!54 &5929720212708074275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -664,6 +664,7 @@ MonoBehaviour:
   textoTotal: {fileID: 0}
   textoTotalGameover: {fileID: 0}
   moneda: {fileID: 8300000, guid: 912cd071b6eabde449169cbe3b5cdaae, type: 3}
+  pocion: {fileID: 8300000, guid: 3188ef79fb399f048b4f07404694ef68, type: 3}
 --- !u!114 &702480616098075136
 MonoBehaviour:
   m_ObjectHideFlags: 0

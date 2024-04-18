@@ -9,14 +9,12 @@ public class BombaConLayer : MonoBehaviour
     public float radio;
     public float fuerzaHorizontal;
     public float fuerzaVertical;
+    public int damage= 10;
 
     [Header("Segundos de espera antes de la explosión")]
     public int temporizador;
 
     public LayerMask layerMask;
-    private enemigo.Enemigo scrpitenemigo;
-    private PatrullajeManager patrulla;
-
     void Start()
     {
         Invoke("Explotar", temporizador);
@@ -30,11 +28,9 @@ public class BombaConLayer : MonoBehaviour
         foreach (var collider in hitColliders)
 
         {
-            MonoBehaviour[] mb = collider.GetComponentsInChildren<MonoBehaviour>();
-            foreach (MonoBehaviour m in mb)
+            if (collider.GetComponent<SistemaVidaEnemigo>() != null)
             {
-                print("Lo hace");
-                m.enabled = false;
+                collider.GetComponent<SistemaVidaEnemigo>().QuitarVida(damage);
             }
 
             if (collider.GetComponent<Rigidbody>() != null)
@@ -48,9 +44,13 @@ public class BombaConLayer : MonoBehaviour
                     fuerzaVertical);
 
             }
-            if (collider.GetComponent<Animator>() != null)
+            if (collider.GetComponent<enemigo.Enemigo>() != null)
             {
-                collider.GetComponent<Animator>().enabled = false;
+                collider.GetComponent<enemigo.Enemigo>().congelado=true;
+            }
+            if (collider.GetComponent<enemigo.EnemigoKamikace>() != null)
+            {
+                collider.GetComponent<enemigo.EnemigoKamikace>().congelado=true;
             }
         }
 
