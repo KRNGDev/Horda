@@ -27,13 +27,14 @@ public class Arma : MonoBehaviour
         }
         else
         {
-            GetComponent<AudioSource>().PlayOneShot(audioNoBullets);
+           
         }
     }
     private void Disparar()
     {
         GetComponent<AudioSource>().PlayOneShot(audioShoot);
         municion--;
+         GetComponent<AudioSource>().PlayOneShot(audioNoBullets);
         GameObject bala = Instantiate(prefabBala, transformSpawner.position, transformSpawner.rotation);
         //bala.GetComponent<Rigidbody>().AddForce(bala.transform.forward * fuerza);
     }

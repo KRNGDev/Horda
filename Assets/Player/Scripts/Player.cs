@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 namespace Player
 {
@@ -21,7 +22,10 @@ namespace Player
 
         [Header("GameObject Player")]
         public Animator animator;
+        public GameObject slash;
+        public AudioClip grito;
         private Rigidbody rbPlayer;
+        private AudioSource audioSource;
 
 
 
@@ -32,6 +36,8 @@ namespace Player
 
             rbPlayer = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
+            audioSource= GetComponent<AudioSource>();
+
 
         }
 
@@ -69,13 +75,18 @@ namespace Player
                 animator.SetBool("Defendiendo", false);
                 defendiendo = false;
             }
-            if(Input.GetKeyDown(KeyCode.Q)){
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
                 animator.SetBool("ataqueGiratorio", true);
-                
+                audioSource.PlayOneShot(grito);
+
+
+
             }
-            if(Input.GetKeyUp(KeyCode.Q)){
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
                 animator.SetBool("ataqueGiratorio", false);
-                
+
             }
 
             //Movimiento Player
@@ -132,6 +143,15 @@ namespace Player
             animator.SetBool("EstaEnSuelo", true);
             animator.SetBool("Saltando", false);
             estaEnSuelo = true;
+        }
+        private void SlashActivo()
+        {
+            slash.SetActive(true);
+        }
+        private void SlashDesactivo()
+        {
+            slash.SetActive(false);
+
         }
 
 

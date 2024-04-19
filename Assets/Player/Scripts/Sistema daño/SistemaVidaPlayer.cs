@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class SistemaVidaPlayer : MonoBehaviour
 {
     [Header("Datos Personaje")]
+    public bool inmortal=false;
     public int vidaMax;
     public float vidaActual;
     public String tagEnemigo;
@@ -38,8 +39,11 @@ public class SistemaVidaPlayer : MonoBehaviour
     }
     public void QuitarVida(int hit)
     {
+        if(!inmortal){
+            vidaActual -= hit;
+        }
 
-        vidaActual -= hit;
+        
 
 
     }

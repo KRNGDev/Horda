@@ -11,11 +11,30 @@ public class ArmaPlayer : MonoBehaviour
 
     public Image crossHair;
     public Camera camara;
+    private Animator animator;
+    public bool atacando = false;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)&& !atacando )
         {
+           
+                
             ApretarGatillo();
+            animator.SetBool("ataqueArea", true);
+            
+            
+            
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            atacando = false;
+            animator.SetBool("ataqueArea", false);
+            
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
@@ -43,6 +62,8 @@ public class ArmaPlayer : MonoBehaviour
 
     public void ApretarGatillo()
     {
-        arma.IntentarDisparo();
+        atacando=true;                
+        arma.IntentarDisparo();       
     }
+
 }
