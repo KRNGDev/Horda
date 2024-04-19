@@ -1,53 +1,76 @@
 using System;
-using System.Collections;
 using UnityEngine;
 namespace Player
 {
     public class sonidosFX : MonoBehaviour
     {
-        [Header("Audios Player")]
-        public AudioClip audioAliento;
+
+        [Header("Audios Genericos")]
+        public AudioClip audioCaidaPesada;
+        public AudioClip alientoPlayer;
         public AudioClip audioEspada;
+
+        [Header("Audios Player")]
+        public AudioClip audioPisada1;
+        public AudioClip audioPisada2;
         public AudioClip audioPisada;
+        public AudioClip gritoSalto;
         public AudioClip audioCaer;
         public AudioClip audioSaltar;
 
         [Header("Audios Enemigo")]
-        public AudioClip enemigo;
+        public AudioClip alientoEnemigo;
+        [Header("Audios efectos")]
+        public AudioClip fuego;
+        public AudioClip hielo;
 
-        [Header("Audios Genericos")]
-        public AudioClip audioGolpe;
 
 
 
         public void FxSonido(String sonido)
         {
-            if (audioAliento || audioEspada || audioPisada || audioCaer || audioSaltar)
+
+            switch (sonido)
             {
 
-                switch (sonido)
-                {
-
-                    case "aliento":
-                        GetComponent<AudioSource>().PlayOneShot(audioAliento);
-                        break;
-                    case "sonidoEspada":
-                        GetComponent<AudioSource>().PlayOneShot(audioEspada);
-                        break;
-                    case "pisada":
-                        GetComponent<AudioSource>().PlayOneShot(audioPisada);
-                        break;
-                    case "caer":
-                        GetComponent<AudioSource>().PlayOneShot(audioCaer);
-                        break;
-                    case "saltar":
-                        GetComponent<AudioSource>().PlayOneShot(audioSaltar);
-                        break;
-                    case "golpe":
-                        GetComponent<AudioSource>().PlayOneShot(audioGolpe);
-                        break;
-                }
+                case "aliento":
+                    GetComponent<AudioSource>().PlayOneShot(alientoPlayer);
+                    break;
+                case "alientoEnemigo":
+                    GetComponent<AudioSource>().PlayOneShot(alientoEnemigo);
+                    break;
+                case "sonidoEspada":
+                    GetComponent<AudioSource>().PlayOneShot(audioEspada);
+                    break;
+                case "pisada":
+                    GetComponent<AudioSource>().PlayOneShot(audioPisada);
+                    break;
+                case "pisada1":
+                    GetComponent<AudioSource>().PlayOneShot(audioPisada1);
+                    break;
+                case "pisada2":
+                    GetComponent<AudioSource>().PlayOneShot(audioPisada2);
+                    break;
+                case "caer":
+                    GetComponent<AudioSource>().PlayOneShot(audioCaer);
+                    break;
+                case "saltar":
+                    GetComponent<AudioSource>().PlayOneShot(audioSaltar);
+                    break;
+                case "gritoSalto":
+                    GetComponent<AudioSource>().PlayOneShot(gritoSalto);
+                    break;
+                case "caidaPesada":
+                    GetComponent<AudioSource>().PlayOneShot(audioCaidaPesada);
+                    break;
+                case "fuego":
+                    GetComponent<AudioSource>().PlayOneShot(fuego);
+                    break;
+                case "hielo":
+                    GetComponent<AudioSource>().PlayOneShot(hielo);
+                    break;
             }
+
         }
     }
 }

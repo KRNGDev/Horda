@@ -22,6 +22,7 @@ public class SistemaVidaEnemigo : MonoBehaviour
     public Slider sliderVida;
     private enemigo.Enemigo scrpitenemigo;
     private PatrullajeManager patrulla;
+    private Fx fx;
 
 
     void Start()
@@ -29,6 +30,7 @@ public class SistemaVidaEnemigo : MonoBehaviour
         animator = GetComponent<Animator>();
         scrpitenemigo = GetComponent<enemigo.Enemigo>();
         patrulla = GetComponent<PatrullajeManager>();
+        fx = GetComponent<Fx>();
         vidaActual = vidaMax;
     }
     void Update()
@@ -60,7 +62,20 @@ public class SistemaVidaEnemigo : MonoBehaviour
             QuitarVida(damage);
             animator.SetBool("Dado", true);
             dado = true;
+        }
+        if (other.gameObject.CompareTag("EspadaFuego") && !dado)
+        {
+            int damage = other.GetComponentInParent<Player.Player>().damageSkil;
+            QuitarVida(damage);
+            GameObject fuego = Instantiate(fx.ardiendo, transform.position, transform.rotation);
+            fuego.transform.parent = transform;
 
+            if (vidaActual >= 0 && !muerto)
+            {
+                animator.SetBool("caido", true);
+                animator.SetBool("ataca", false);
+                dado = true;
+            }
         }
     }
     void OnTriggerExit(Collider other)
@@ -71,12 +86,18 @@ public class SistemaVidaEnemigo : MonoBehaviour
 
             animator.SetBool("Dado", false);
         }
+
+    }
+    public void DePie()
+    {
+        dado = false;
+
+        animator.SetBool("caido", false);
+
     }
 
     public void Quieto()
     {
-
-
         // MonoBehaviour esto coje todo los script del jugador y los desactiva
 
         MonoBehaviour[] mb = GetComponentsInChildren<MonoBehaviour>();
@@ -84,8 +105,16 @@ public class SistemaVidaEnemigo : MonoBehaviour
         {
             m.enabled = false;
         }
+    }
+    public void EnMovimiento()
+    {
+        // MonoBehaviour esto coje todo los script del jugador y los desactiva
 
-
+        MonoBehaviour[] mb = GetComponentsInChildren<MonoBehaviour>();
+        foreach (MonoBehaviour m in mb)
+        {
+            m.enabled = true;
+        }
     }
     public void Destruir()
     {

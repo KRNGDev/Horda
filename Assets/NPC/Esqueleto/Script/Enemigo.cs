@@ -75,14 +75,17 @@ namespace enemigo
 
         public void Animacion()
         {congelado = false;
-            GetComponent<Animator>().enabled = false;
+            //GetComponent<Animator>().enabled = false;
+            GetComponent<Animator>().SetBool("caido", true);
             GameObject aturdido=Instantiate(rayos,transform.position,transform.rotation);
             aturdido.transform.parent = transform;
             Invoke("Activar", tiempoCongelado);
         }
         public void Activar()
         {
-            GetComponent<Animator>().enabled = true;
+           // GetComponent<Animator>().enabled = true;
+           GetComponent<Animator>().SetBool("caido", false);
+
             
         }
 

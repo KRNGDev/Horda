@@ -601,6 +601,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14ab85c74a636c74baa3ae08a1b410bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9201337658895473163}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14ab85c74a636c74baa3ae08a1b410bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3862904311249401535}
   m_SourcePrefab: {fileID: 100100000, guid: 14ab85c74a636c74baa3ae08a1b410bc, type: 3}
 --- !u!4 &1043006787050463016 stripped
 Transform:
@@ -903,6 +906,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3862904311249401535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699616472682627666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1fa1ced45301248bf6feb45d983a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  humoCircular: {fileID: 0}
+  alientoPlayer: {fileID: 0}
+  audioEspada: {fileID: 0}
+  audioPisada1: {fileID: 0}
+  audioPisada2: {fileID: 0}
+  audioPisada: {fileID: 0}
+  audioCaer: {fileID: 0}
+  audioSaltar: {fileID: 0}
+  fuego: {fileID: 0}
+  ardiendo: {fileID: 1206498299807332555, guid: af6c1e3f046eecd4d81330aeb285600f, type: 3}
+  hielo: {fileID: 0}
 --- !u!4 &4043244244974885096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 14ab85c74a636c74baa3ae08a1b410bc, type: 3}

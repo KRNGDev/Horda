@@ -9,6 +9,7 @@ namespace Player
 
         [Header("Datos Player")]
         public int puntosDano;
+        public int damageSkil=10;
         public float fuerzaSalto = 10.0f;
         public float velRotate = 200.0f;
         public float velMovimiento = 5.0f;
@@ -103,7 +104,7 @@ namespace Player
                 if (Input.GetButtonDown("Jump") && estaEnSuelo)
                 {
 
-                    rbPlayer.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
+                    //rbPlayer.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
                     animator.SetBool("Saltando", true);
                     animator.SetBool("EstaEnSuelo", false);
                     estaEnSuelo = false;
